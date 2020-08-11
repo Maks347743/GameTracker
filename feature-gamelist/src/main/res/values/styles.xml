@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="baseTextStyle">
+        <item name="android:textColor">@color/blueCharcoal</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="baseTextStyle.Light">
+        <item name="android:textColor">@color/blueCharcoal</item>
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="baseTextStyle.H1">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="baseTextStyle.White">
+        <item name="android:textColor">@color/roseWhite</item>
+    </style>
+
+    <style name="baseTextStyle.White.H1">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="baseTextStyle.Light.White">
+        <item name="android:textColor">@color/roseWhite</item>
+    </style>
+
+    <style name="baseTextStyle.Light.White.H3">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+
+</resources>

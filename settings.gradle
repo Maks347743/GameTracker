@@ -1,2 +1,6 @@
+include ':core-network'
+include ':feature-gamevideo'
+include ':core-utils'
+include ':feature-gamelist'
 include ':app'
 rootProject.name = "GameTracker"
