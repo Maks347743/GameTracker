@@ -42,6 +42,7 @@ dependencies {
     //modules
     implementation project(':core-utils')
     implementation project(':core-network')
+    api project(':core')
     //libs
     implementation libs.kotlin
     implementation libs.ktx

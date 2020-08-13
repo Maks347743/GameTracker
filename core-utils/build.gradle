@@ -45,6 +45,7 @@ dependencies {
     implementation libs.appcompat
     implementation libs.material
     implementation libs.dagger
+    implementation libs.navigation
     kapt libs.daggerCompiler
     //lifecycle
     implementation libs.lifecycleViewModel

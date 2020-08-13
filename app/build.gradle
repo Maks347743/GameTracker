@@ -44,6 +44,7 @@ dependencies {
     implementation project(':feature-gamelist')
     implementation project(':feature-gamevideo')
     implementation project(':core-utils')
+    implementation project(':core')
     //libs
     implementation libs.kotlin
     implementation libs.ktx
@@ -51,6 +52,8 @@ dependencies {
     implementation libs.material
     implementation libs.coroutines
     implementation libs.dagger
+    implementation libs.navigation
+    implementation libs.navigationUI
     kapt libs.daggerCompiler
     //tests
     testImplementation libs.junit

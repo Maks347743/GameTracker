@@ -3,16 +3,21 @@ package com.gmail.maks347743.feature_gamelist_impl.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.gmail.maks347743.core_api.GameListFeatureNavigator
+import com.gmail.maks347743.core_api.Resources
 import com.gmail.maks347743.core_network.di.NetworkComponent
 import com.gmail.maks347743.core_ui_utils.BaseItem
 import com.gmail.maks347743.core_ui_utils.BaseViewModel
-import com.gmail.maks347743.core_ui_utils.ResourceProvider
 import com.gmail.maks347743.feature_gamelist_impl.model.*
+import dagger.multibindings.IntoMap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class GameListViewModel @Inject constructor() : BaseViewModel() {
+class GameListViewModel @Inject constructor(
+    private val resourceProvider: Resources,
+    private val navigator: GameListFeatureNavigator
+) : BaseViewModel() {
 
     private val api = NetworkComponent.createApi()
 

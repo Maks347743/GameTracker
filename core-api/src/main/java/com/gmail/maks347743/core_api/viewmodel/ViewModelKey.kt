@@ -1,4 +1,4 @@
-package com.gmail.maks347743.core_ui_utils
+package com.gmail.maks347743.core_api.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

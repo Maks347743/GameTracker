@@ -1,19 +1,14 @@
 package com.gmail.maks347743.gametracker.di
 
 import android.content.Context
-import com.gmail.maks347743.core_ui_utils.ResourceProvider
-import com.gmail.maks347743.core_ui_utils.ResourceProviderImpl
-import dagger.Binds
+import com.gmail.maks347743.core_api.ContextProvider
 import dagger.BindsInstance
 import dagger.Component
-import dagger.Module
 import javax.inject.Singleton
 
-@Component(modules = [AppModule::class])
+@Component
 @Singleton
-interface AppComponent {
-
-    fun resourceProvider(): ResourceProvider
+interface AppComponent : ContextProvider {
 
     @Component.Builder
     interface Builder {
@@ -22,11 +17,19 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-}
+    companion object {
 
-@Module
-interface AppModule {
-    @Binds
-    @Singleton
-    fun resourceProvider(resourceProvider: ResourceProviderImpl): ResourceProvider
+        private var contextProvider: ContextProvider? = null
+
+        fun create(context: Context): ContextProvider {
+            return contextProvider ?: DaggerAppComponent
+                .builder()
+                .context(context)
+                .build().also {
+                    contextProvider = it
+                }
+        }
+
+    }
+
 }

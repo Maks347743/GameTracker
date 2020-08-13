@@ -15,6 +15,8 @@ ext.versions = [
         okHttpLogger    : '4.6.0',
         glide           : '4.11.0',
         dagger          : '2.28.3',
+        navigation      : '2.3.0',
+
 ]
 
 ext.libs = [
@@ -44,6 +46,8 @@ ext.libs = [
         espresso                   : "androidx.test.espresso:espresso-core:$versions.espresso",
         adapterDelegates           : "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:$versions.adapterDelegates",
         adapterDelegatesViewBinding: "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:$versions.adapterDelegates",
+        navigation                 : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navigationUI               : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
 
 
 ]
