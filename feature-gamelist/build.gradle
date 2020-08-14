@@ -41,7 +41,6 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //modules
     implementation project(':core-utils')
-    implementation project(':core-network')
     api project(':core')
     //libs
     implementation libs.kotlin

@@ -1,6 +1,6 @@
 package com.gmail.maks347743.gametracker.navigation
 
-import com.gmail.maks347743.core_api.GameListFeatureNavigator
+import com.gmail.maks347743.core_api.navigation.GameListFeatureNavigator
 import com.gmail.maks347743.core_ui_utils.BaseNavigator
 import com.gmail.maks347743.gametracker.R
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package com.gmail.maks347743.core_impl.resources
 
-import com.gmail.maks347743.core_api.Resources
+import com.gmail.maks347743.core_api.resources.Resources
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton

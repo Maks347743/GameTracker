@@ -1,4 +1,4 @@
-package com.gmail.maks347743.core_api
+package com.gmail.maks347743.core_api.resources
 
 import androidx.annotation.StringRes
 

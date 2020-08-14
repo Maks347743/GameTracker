@@ -4,11 +4,12 @@ import android.content.Context
 import com.gmail.maks347743.core.CoreProvidersFactory
 import com.gmail.maks347743.core_api.ContextProvider
 import com.gmail.maks347743.core_api.ProvidersAggregator
-import com.gmail.maks347743.core_api.ResourceProvider
+import com.gmail.maks347743.core_api.network.ApiProvider
+import com.gmail.maks347743.core_api.resources.ResourceProvider
 import dagger.Component
 
 @Component(
-    dependencies = [ContextProvider::class, ResourceProvider::class],
+    dependencies = [ContextProvider::class, ResourceProvider::class, ApiProvider::class],
     modules = [NavigationModule::class]
 )
 interface ProvidersComponent : ProvidersAggregator {
@@ -19,8 +20,8 @@ interface ProvidersComponent : ProvidersAggregator {
             DaggerProvidersComponent.builder()
                 .contextProvider(AppComponent.create(context))
                 .resourceProvider(
-                    CoreProvidersFactory.createResourceProvider(AppComponent.create(context))
-                )
+                    CoreProvidersFactory.createResourceProvider(AppComponent.create(context)))
+                .apiProvider(CoreProvidersFactory.createApiProvider())
                 .build()
 
     }

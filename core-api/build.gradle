@@ -33,6 +33,10 @@ dependencies {
     implementation libs.ktx
     implementation libs.dagger
     implementation libs.appcompat
+    implementation libs.retrofit
+    implementation libs.retrofitGsonConverter
+    implementation libs.coroutines
+    implementation libs.okHttpLogger
     kapt libs.daggerCompiler
     //tests
     testImplementation libs.junit

@@ -1,4 +1,4 @@
-package com.gmail.maks347743.core_network.model
+package com.gmail.maks347743.core_api.dto
 
 import com.google.gson.annotations.SerializedName
 
