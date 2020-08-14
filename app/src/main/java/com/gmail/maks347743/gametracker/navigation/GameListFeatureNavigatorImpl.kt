@@ -6,7 +6,7 @@ import com.gmail.maks347743.gametracker.R
 import javax.inject.Inject
 
 class GameListFeatureNavigatorImpl @Inject constructor()
-    : BaseNavigator(), GameListFeatureNavigator {
+    : GameListFeatureNavigator, BaseNavigator() {
 
     override fun navigateToGameVideo() {
         navController?.navigate(R.id.action_gameListFragment_to_gameVideoFragment)

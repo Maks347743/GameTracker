@@ -27,6 +27,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':core-utils')
     //libs
     implementation libs.kotlin
     implementation libs.ktx

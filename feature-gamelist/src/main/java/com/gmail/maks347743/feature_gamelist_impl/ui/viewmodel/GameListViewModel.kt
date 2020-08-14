@@ -17,7 +17,7 @@ import javax.inject.Inject
 class GameListViewModel @Inject constructor(
     private val resourceProvider: Resources,
     private val navigator: GameListFeatureNavigator
-) : BaseViewModel() {
+) : BaseViewModel(navigator) {
 
     private val api = NetworkComponent.createApi()
 

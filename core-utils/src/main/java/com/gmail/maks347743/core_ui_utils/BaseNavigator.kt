@@ -2,15 +2,8 @@ package com.gmail.maks347743.core_ui_utils
 
 import androidx.navigation.NavController
 
-abstract class BaseNavigator {
+abstract class BaseNavigator : Navigator {
 
-    protected var navController: NavController? = null
+    override var navController: NavController? = null
 
-    fun bind(navController: NavController) {
-        this.navController = navController
-    }
-
-    fun unbind() {
-        navController = null
-    }
 }
