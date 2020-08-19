@@ -8,6 +8,7 @@ import com.gmail.maks347743.core_api.network.GamesApi
 import com.gmail.maks347743.core_api.resources.Resources
 import com.gmail.maks347743.core_ui_utils.BaseItem
 import com.gmail.maks347743.core_ui_utils.BaseViewModel
+import com.gmail.maks347743.feature_gamelist_impl.R
 import com.gmail.maks347743.feature_gamelist_impl.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,7 +24,7 @@ class GameListViewModel @Inject constructor(
     val data: LiveData<List<BaseItem>> = _data
 
     init {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO + errorHandler) {
             _data.postValue(getLoaders())
             val items = getGames()
             _data.postValue(items)
@@ -67,15 +68,15 @@ class GameListViewModel @Inject constructor(
         }
         return listOf(
             GamesHorizontalListItem(
-                "Most anticipated",
+                resourceProvider.string(R.string.most_anticipated),
                 games = mostAnticipatedGames
             ),
             GamesHorizontalListItem(
-                "Latest releases",
+                resourceProvider.string(R.string.latest_releases),
                 games = latestReleasesGames
             ),
             GamesHorizontalListItem(
-                "Most rated in 2020",
+                resourceProvider.string(R.string.most_rated),
                 games = mostRatedGames
             )
         )
@@ -83,19 +84,19 @@ class GameListViewModel @Inject constructor(
 
     private fun getLoaders(): List<BaseItem> = listOf(
         GamesHorizontalListItem(
-            "Most anticipated",
+            resourceProvider.string(R.string.most_anticipated),
             games = IntRange(1, 2).map {
                 ProgressWideItem
             }
         ),
         GamesHorizontalListItem(
-            "Latest releases",
+            resourceProvider.string(R.string.latest_releases),
             games = IntRange(0, 3).map {
                 ProgressThinItem
             }
         ),
         GamesHorizontalListItem(
-            "Most rated in 2020",
+            resourceProvider.string(R.string.most_rated),
             games = IntRange(1, 2).map {
                 ProgressWideItem
             }

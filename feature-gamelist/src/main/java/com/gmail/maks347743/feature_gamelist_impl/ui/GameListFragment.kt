@@ -17,8 +17,8 @@ class GameListFragment : BaseFragment<GameListViewModel>(R.layout.fragment_game_
         GameListFeatureComponent.injectFragment(this)
     }
     private val binding by viewBinding(FragmentGameListBinding::bind)
-    override lateinit var viewModel: GameListViewModel
     private val adapter = GameListAdapter()
+    override lateinit var viewModel: GameListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,9 @@ class GameListFragment : BaseFragment<GameListViewModel>(R.layout.fragment_game_
         binding.recyclerGameList.adapter = adapter
         viewModel.data.observe(this.viewLifecycleOwner, Observer {
             adapter.items = it
+        })
+        viewModel.error.observe(this.viewLifecycleOwner, Observer {
+            showError()
         })
     }
 
