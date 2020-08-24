@@ -1,4 +1,4 @@
-package com.gmail.maks347743.core_ui_utils
+package com.gmail.maks347743.core_ui_utils.base
 
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment

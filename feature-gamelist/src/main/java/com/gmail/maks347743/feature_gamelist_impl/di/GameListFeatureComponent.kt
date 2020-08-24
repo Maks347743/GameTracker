@@ -13,7 +13,7 @@ import dagger.Component
 @FeatureScope
 @Component(
     dependencies = [GameListFeatureNavigator::class, Resources::class, GamesApi::class],
-    modules = [ViewModelModule::class]
+    modules = [GameListModule::class]
 )
 interface GameListFeatureComponent : ViewModelFactoryProvider {
 

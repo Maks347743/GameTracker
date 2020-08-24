@@ -5,27 +5,33 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
-import com.gmail.maks347743.core_ui_utils.BaseItem
+import com.gmail.maks347743.core_ui_utils.base.BaseItem
+import com.gmail.maks347743.feature_gamelist_impl.CategoryType
 import com.gmail.maks347743.feature_gamelist_impl.R
 import com.gmail.maks347743.feature_gamelist_impl.databinding.*
 import com.gmail.maks347743.feature_gamelist_impl.model.*
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 
-fun horizontalGameListDelegate() =
+fun horizontalGameListDelegate(
+    onItemBind: (GamesHorizontalListItem) -> Unit,
+    onReadyToLoadMore: (CategoryType, Int) -> Unit
+) =
     adapterDelegateViewBinding<GamesHorizontalListItem, BaseItem, ItemGamesHorizontalBinding>(
         viewBinding = { inflater, container ->
             ItemGamesHorizontalBinding.inflate(inflater, container, false)
         },
         block = {
-            val adapter = GamesAdapter()
+            val adapter = GamesAdapter { position -> onReadyToLoadMore.invoke(item.type, position) }
+            binding.recyclerHorizontalGameList.itemAnimator = null
+            binding.recyclerHorizontalGameList.adapter = adapter
             bind {
-                binding.recyclerHorizontalGameList.adapter = adapter
+                onItemBind.invoke(item)
                 binding.titleTextView.text = item.title
                 adapter.items = item.games
             }
         })
 
-fun wideGameDelegate() =
+fun wideGameDelegate(onReadyToLoadMore: (Int) -> Unit) =
     adapterDelegateViewBinding<GameWideItem, BaseItem, ItemGameWideBinding>(
         viewBinding = { inflater, container ->
             ItemGameWideBinding.inflate(inflater, container, false)
@@ -42,6 +48,7 @@ fun wideGameDelegate() =
                     .into(binding.imageView)
                 binding.title = item.title
                 binding.executePendingBindings()
+                onReadyToLoadMore.invoke(adapterPosition)
             }
             onViewRecycled {
                 if ((binding.root.context as? Activity)?.isDestroyed == false) {
@@ -59,7 +66,7 @@ fun wideProgressDelegate() =
         block = {}
     )
 
-fun thinGameDelegate() =
+fun thinGameDelegate(onReadyToLoadMore: (Int) -> Unit) =
     adapterDelegateViewBinding<GameThinItem, BaseItem, ItemGameThinBinding>(
         viewBinding = { inflater, container ->
             ItemGameThinBinding.inflate(inflater, container, false)
@@ -76,6 +83,7 @@ fun thinGameDelegate() =
                     .into(binding.imageView)
                 binding.title = item.title
                 binding.executePendingBindings()
+                onReadyToLoadMore.invoke(adapterPosition)
             }
             onViewRecycled {
                 if ((binding.root.context as? Activity)?.isDestroyed == false) {

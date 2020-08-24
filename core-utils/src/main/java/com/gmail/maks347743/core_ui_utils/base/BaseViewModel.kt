@@ -1,9 +1,10 @@
-package com.gmail.maks347743.core_ui_utils
+package com.gmail.maks347743.core_ui_utils.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import com.gmail.maks347743.core_ui_utils.navigation.Navigator
 import kotlinx.coroutines.CoroutineExceptionHandler
 
 abstract class BaseViewModel(private val navigator: Navigator) : ViewModel() {

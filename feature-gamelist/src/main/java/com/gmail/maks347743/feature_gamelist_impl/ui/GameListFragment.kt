@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.gmail.maks347743.core_ui_utils.BaseFragment
-import com.gmail.maks347743.core_ui_utils.viewBinding
+import com.gmail.maks347743.core_ui_utils.base.BaseFragment
+import com.gmail.maks347743.core_ui_utils.extensions.viewBinding
 import com.gmail.maks347743.feature_gamelist_impl.R
 import com.gmail.maks347743.feature_gamelist_impl.databinding.FragmentGameListBinding
 import com.gmail.maks347743.feature_gamelist_impl.di.GameListFeatureComponent
@@ -17,8 +17,12 @@ class GameListFragment : BaseFragment<GameListViewModel>(R.layout.fragment_game_
         GameListFeatureComponent.injectFragment(this)
     }
     private val binding by viewBinding(FragmentGameListBinding::bind)
-    private val adapter = GameListAdapter()
     override lateinit var viewModel: GameListViewModel
+    private val adapter by lazy {
+        GameListAdapter(
+            onItemBind = viewModel::initCategory,
+            onReadyToLoadMore = viewModel::tryToLoadMore)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
