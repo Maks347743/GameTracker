@@ -1,12 +1,16 @@
-package com.gmail.maks347743.feature_gamelist_impl
+package com.gmail.maks347743.feature_gamelist_impl.interactor
 
 import com.gmail.maks347743.core_api.dto.GameDto
 import com.gmail.maks347743.core_ui_utils.base.BaseItem
+import com.gmail.maks347743.feature_gamelist_impl.CategoryType
+import com.gmail.maks347743.feature_gamelist_impl.GameCategoryModel
+import com.gmail.maks347743.feature_gamelist_impl.ItemType
 import com.gmail.maks347743.feature_gamelist_impl.api.PagingState
 import com.gmail.maks347743.feature_gamelist_impl.di.LatestReleasesRepositoryType
 import com.gmail.maks347743.feature_gamelist_impl.di.MostAnticipatedGamesRepositoryType
 import com.gmail.maks347743.feature_gamelist_impl.di.MostRatedGamesRepositoryType
 import com.gmail.maks347743.feature_gamelist_impl.model.*
+import com.gmail.maks347743.feature_gamelist_impl.repository.GameListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
@@ -24,7 +28,9 @@ class GameListInteractorImpl @Inject constructor(
     ) { anticipatedGames, latestReleases, ratedGames ->
         listOf(
             mapToCategory(anticipatedGames),
-            mapToCategory(latestReleases, ItemType.THIN),
+            mapToCategory(latestReleases,
+                ItemType.THIN
+            ),
             mapToCategory(ratedGames)
         )
     }

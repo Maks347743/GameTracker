@@ -9,7 +9,7 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 class GameListAdapter(
     onItemBind: (GamesHorizontalListItem) -> Unit,
     onReadyToLoadMore: (CategoryType, Int) -> Unit
-) : AsyncListDifferDelegationAdapter<BaseItem>(BaseDiffUtilItemCallback()) {
+) : AsyncListDifferDelegationAdapter<BaseItem>(GameHorizontalListDiffUtilItemCallback()) {
 
     init {
         delegatesManager.addDelegate(horizontalGameListDelegate(onItemBind, onReadyToLoadMore))

@@ -7,7 +7,7 @@ import com.gmail.maks347743.core_api.navigation.GameListFeatureNavigator
 import com.gmail.maks347743.core_ui_utils.base.BaseItem
 import com.gmail.maks347743.core_ui_utils.base.BaseViewModel
 import com.gmail.maks347743.feature_gamelist_impl.CategoryType
-import com.gmail.maks347743.feature_gamelist_impl.GameListInteractor
+import com.gmail.maks347743.feature_gamelist_impl.interactor.GameListInteractor
 import com.gmail.maks347743.feature_gamelist_impl.model.GamesHorizontalListItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect

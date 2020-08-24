@@ -24,10 +24,14 @@ fun horizontalGameListDelegate(
             val adapter = GamesAdapter { position -> onReadyToLoadMore.invoke(item.type, position) }
             binding.recyclerHorizontalGameList.itemAnimator = null
             binding.recyclerHorizontalGameList.adapter = adapter
-            bind {
+            bind { payloads ->
                 onItemBind.invoke(item)
-                binding.titleTextView.text = item.title
-                adapter.items = item.games
+                if (payloads.isNotEmpty()) {
+                    adapter.items = payloads[0] as List<BaseItem>
+                } else {
+                    binding.titleTextView.text = item.title
+                    adapter.items = item.games
+                }
             }
         })
 

@@ -1,5 +1,6 @@
-package com.gmail.maks347743.feature_gamelist_impl
+package com.gmail.maks347743.feature_gamelist_impl.repository
 
+import com.gmail.maks347743.feature_gamelist_impl.GameCategoryModel
 import kotlinx.coroutines.flow.Flow
 
 interface GameListRepository {

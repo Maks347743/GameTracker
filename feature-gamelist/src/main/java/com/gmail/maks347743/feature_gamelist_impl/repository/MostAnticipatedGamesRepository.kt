@@ -1,6 +1,9 @@
-package com.gmail.maks347743.feature_gamelist_impl
+package com.gmail.maks347743.feature_gamelist_impl.repository
 
 import com.gmail.maks347743.core_api.resources.Resources
+import com.gmail.maks347743.feature_gamelist_impl.CategoryType
+import com.gmail.maks347743.feature_gamelist_impl.GameCategoryModel
+import com.gmail.maks347743.feature_gamelist_impl.R
 import com.gmail.maks347743.feature_gamelist_impl.api.GamesApiParams
 import com.gmail.maks347743.feature_gamelist_impl.api.GamesDataSource
 import kotlinx.coroutines.flow.Flow
